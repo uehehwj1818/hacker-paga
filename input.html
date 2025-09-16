@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تم الاختراق ⚠️</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: monospace;
+      padding: 20px;
+    }
+    .title {
+      color: red;
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 30px;
+      animation: blink 1s infinite alternate;
+    }
+    #terminal {
+      white-space: pre-line;
+      line-height: 1.6;
+      font-size: 18px;
+    }
+    .warning {
+      color: yellow;
+      font-weight: bold;
+      animation: blink 0.5s infinite alternate;
+    }
+    @keyframes blink {
+      from { opacity: 1; }
+      to { opacity: 0.2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="title">💀⚠️ تم اختراق جهازك ⚠️💀</div>
+
+  <div id="terminal"></div>
+
+  <script>
+    const lines = [
+      "> Connecting to dark web server... 👾",
+      "> Bypassing firewall... 🔓 OK",
+      "> Accessing files... 💾",
+      "> Uploading data ███████ 95%",
+      "> 🔑 Passwords stolen...",
+      "> 📂 Documents encrypted",
+      "> <span class='warning'>⚠️ WARNING: System Compromised ⚠️</span>",
+      "> 💀 VIRUS INSTALLED SUCCESSFULLY 💀",
+    ];
+
+    let i = 0;
+    let speed = 70; // سرعة الكتابة
+
+    function typeLine() {
+      if (i < lines.length) {
+        let line = document.createElement("div");
+        document.getElementById("terminal").appendChild(line);
+        let text = lines[i];
+        let j = 0;
+        function typeChar() {
+          if (j < text.length) {
+            line.innerHTML += text.charAt(j);
+            j++;
+            setTimeout(typeChar, speed);
+          } else {
+            i++;
+            setTimeout(typeLine, 500);
+          }
+        }
+        typeChar();
+      }
+    }
+
+    typeLine();
+  </script>
+</body>
+</html>
